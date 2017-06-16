@@ -81,15 +81,15 @@
       text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
       font-size: 2em;
     }
-    .panel p:nth-child(2) {
+    .panel p:first-child {
       font-size: 4em;
     }
 
-    .panel > *:first-child {transform: translateY(-100%);}
+    /*.panel > *:first-child {transform: translateY(-100%);}*/
     .panel > *:last-child {transform: translateY(100%);}
 
-    .panel.open-active > *:first-child {transform: translateY(0);}
-    .panel.open-active > *:last-child {transform: translateY(0);}
+    .panel.open-active > *:first-child {transform: translateY(-30%);}
+    .panel.open-active > * {transform: translateY(-100%);}
 
     .panel.open {
       font-size:40px;
@@ -101,27 +101,22 @@
 
   <div class="panels">
     <div class="panel panel1">
-      <p>Hey</p>
       <p>Profile</p>
       <p>Dance</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
       <p>Education</p>
       <p>Receive</p>
     </div>
     <div class="panel panel3">
       <p>Experience</p>
-      <p>Experience</p>
       <p>Today</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
       <p>Technical skills</p>
       <p>BIM softwares: Autodesk Revit</p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
       <p>Languages</p>
       <p>Motion</p>
     </div>
