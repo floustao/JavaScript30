@@ -7,6 +7,80 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+//select the canvas
+const canvas = document.querySelector('#draw');
+
+//Canvas 2D API to draw :
+// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+var ctx = canvas.getContext('2d');
+
+//resizing canvas window
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+//Specify the color or style to use for the lines around shapes
+ctx.strokeStyle = '#BADA55';
+ctx.lineJoin = 'round'; // round or bevel or miter
+ctx.lineCap = 'round'; // butt or round or square
+ctx.lineWidth = 100;
+
+//drawing set to false, and activate when specific events
+let isDrawing = false;
+
+//set strating position
+let lastX = 0;
+let lastY = 0;
+
+//-------hsl(hue, saturation, lightness)
+let hue = 0;
+//----linewidth modification
+let direction = true;
+
+//function to draw
+function draw(e) {
+  if (!isDrawing) {return}; //stop function from running when they are not moused down
+  console.log(e);
+  // -------color
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  //creation d'un chemin :
+  ctx.beginPath();
+  // start from:
+  ctx.moveTo(lastX, lastY);
+  // go to:
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke(); //syntax essential in drawing process => begins & ends
+  // updating starting point
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  // -----increment color
+  hue++;
+  //----linewidth
+  // if (hue >= 360) {
+  //   hue=0};
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction;
+  }
+  if(direction) {
+    ctx.lineWidth++;
+  } else {
+  ctx.lineWidth--;
+  }
+
+}
+
+//activate drawing when moving mouse
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+
+
 </script>
 
 <style>
