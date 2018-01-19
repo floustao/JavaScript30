@@ -1,7 +1,8 @@
-Learning about :
+RESUME
 
 data-attributes
 play() an <audio>
+currentTime = 0 to play audio on and on
 transition and transitionend (CSS)
 add/remove/toggle class :
   jquery => addClass('playing');
@@ -9,6 +10,8 @@ add/remove/toggle class :
 keycode.info = website to know the keycode of each key (ex: 'a' = 65)
 querySelector = one selection
 querySelectorAll = all selections
+e.target
+
 -------------------------------
 
 How does it work ? What is the JS trick ?
@@ -74,8 +77,8 @@ pure js => classList.add('playing');
 -------------------------------
 Let's stop styling after time out:
 
-transition is the important property in the CSS file here
-Once the transition ends, we can remove the class 'playing'
+transition and transform are the important properties in the CSS file here
+Once the transform transition ends, we can remove the class 'playing'
 When does teh transition end ?
 in CSS we have 'transitionend' !
 
