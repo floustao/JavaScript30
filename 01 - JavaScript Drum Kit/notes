@@ -1,40 +1,115 @@
-set variables avec const
-On ecoute un event avec addEventListener
- 
-On call sur window => 
-window.addEventListener(‘keydown’, function(e) { 
+Learning about :
+
+data-attributes
+play() an <audio>
+transition and transitionend (CSS)
+add/remove/toggle class :
+  jquery => addClass('playing');
+  pure js => classList.add('playing');
+keycode.info = website to know the keycode of each key (ex: 'a' = 65)
+querySelector = one selection
+querySelectorAll = all selections
+-------------------------------
+
+How does it work ? What is the JS trick ?
+
+You push a key and it makes a sound and make some color
+it adds class 'playing' which in the css file changes the border color for a few milliseconds.
+
+> html structure :
+
+1st part :
+big div with class = keys
+  sub divs with class key + data-key
+
+2nd part :
+<audio attached to data-keys as well
+
+So it detects which key you type, and play the audio corresponding to the data-key associated.
+
+keycode.info = website to know the keycode of each key (ex: 'a' = 65)
+-------------------------------
+<script>
+let's add a micro (addEventListener)
+on the window,
+that starts with keydown (it could start with keyup)
+and add a function
+
+window.addEventListener('keydown', function(e) {
+  console.log(e);
 });
- 
-attention concatenation avec guillemets differents
- 
-if(!audio) return pour eviter que ca renvoie null
-Le return stoppe la fonction
- 
-.currentTime pour enchainer les sons sans attendre que le son se finisse
-.classList.add == .addClass
-.classList.toggle ou remove ou add(‘classe’)
-.play() pour jouer les sons wav
- 
-setTimeout(function() {
-} 0.07)
-Pour stopper fonction apres temps t
- 
-Autre solution est d’ecouter chaque key en iterant sur keys (.forEach) et de caller une fonction qui stoppera la transition de la classe .key
- 
-On call removeTransition que l’on set en amont pour stopper transition
- 
-Quand on fait un console log on voit qu’il appelle 6 events transitions (transform, box-shadow, border top right bottom & left)
- 
-Par soucis de performance on peut rajouter un if pour flagger uniquement la transition avec le propertyname qui nous interesse (ici transform).
- 
-Penser a refactoriser dans des fonctions que l’on set en amont. Puis ensuite appeler la fonction playSound
- 
-Pour pusher sur Github :
- 
-Ne pas oublier la commande hub create
- 
-Attention: le git remote reste celui de l’auteur :il faut le changer en appliquant :
- 
-git remote set-url origin https://github.com/<nom user>/JavaScript30.git/
- 
-Git push origin master
+
+=> let's see in the console what e displays
+=> detect keycode
+
+e.keycode
+
+=> let's set a constant audio that finds the html including the audio sound from the document
+
+window.addEventListener('keydown', function(e) {
+  const audio = document.querySelector(`audio[data-key = "${e.keycode}"]`);
+  audio.play();
+});
+
+#attention concatenation avec guillemets differents
+
+----------------------------
+Let's add a stop if no keycode, meaning no audio !
+
+if (!audio) return; => exit function
+
+--------------------------------
+can't playing over and over in succession
+audio.currentTime = 0; => rewind from the start
+
+------------------------------
+Let's add some styling
+class playing in css is ready to be added
+
+1. select html you want
+2. add class
+jquery => addClass('playing');
+pure js => classList.add('playing');
+
+-------------------------------
+Let's stop styling after time out:
+
+transition is the important property in the CSS file here
+Once the transition ends, we can remove the class 'playing'
+When does teh transition end ?
+in CSS we have 'transitionend' !
+
+1. let's add an eventListener triggerred by transitionend to each key:
+
+const keys = document.querySelectorAll('.key')
+keys.forEach(key => key.addEventListener('transitionend', callback function))
+
+callback = removeTransition = function to create before
+
+2. Let's create that function
+
+function removeTransition(e) {
+  console.log(e)
+};
+
+=> all the TransitionEvent are displayed in console (4 borders, transform, and box-shadow)
+
+Let's be specific to improve performance, we only want transform
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return; // skip it if it is not a transform
+  console.log(e.propertyName);
+};
+
+=> on a bien la transition transform qui s'affiche
+=> classList.remove('playing');
+
+---------------------------------------
+DRY code, how to refacto ?
+
+=> inject all the logic in a function playSound
+
+=> call playSound in the eventListener on window, at the end.
+
+---------------------------------------
+Push on GitHub
