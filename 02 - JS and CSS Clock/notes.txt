@@ -1,0 +1,43 @@
+takes current time
+
+> html
+
+div .clock
+  div.clock-face
+    div.hour
+    div.minute
+    div.second
+
+> console > css
+how to rotate the hand ?
+  transform: rotate(20deg); => rotates from middle but not from tip
+
+how to rotate from the center of the clock/tip of the hand ?
+  transform-origin is by default at 50% => rotates taking an origin in the middle
+  if we change transform-origin:100% => rotates from the tip !
+
+how to set-up to initial midnight ?
+  transform: rotate(90deg);
+
+how to smooth the move of the hand ?
+  transition: all 0.05s
+
+how to set a fractionned move ?
+  transition-timing-function => click on picture in console and play with cubic-bezier
+
+how to get seconds/minutes/hours of current time ?
+
+function setDate() {
+  const now = new Date();
+  const seconds = now.getSeconds();
+  const minute = now.getMinutes();
+  const hour = now.getHours();
+}
+
+how to set a function every interval ?
+  setInterval(function, milliseconds)
+
+how to convert second in degrees ?
+  const secondDegrees = ((seconds/60)*360);
+
+----- 7min !
