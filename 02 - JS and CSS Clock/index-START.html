@@ -72,27 +72,23 @@
 
   <script>
 
-  const secondHand = document.querySelector('.second-hand');
-  const minHand = document.querySelector('.min-hand');
-  const hourHand = document.querySelector('.hour-hand');
 
-  function setTime(){
-    var time = new Date(); // to get current time
+  function setDate() {
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+    const secondDegrees = (seconds/60)*360;
+    // console.log(secondDegrees) // print degrees
+    // console.log(seconds);
+    // console.log(minutes);
+    // console.log(hours);
+  };
 
-    var seconds = time.getSeconds(); // to get current time in seconds
-    var secondDegrees = ((seconds / 60) * 360) + 90; // to convert in degrees. Add 90 since we set the clock at 90degrees initially
-    secondHand.style.transform = `rotate(${secondDegrees}deg)`; // .style allows you to get access to the css <style> part
+  const intervalID = window.setInterval(setDate,1000);
 
-    var mins = time.getMinutes();
-    var minDegrees = ((mins / 60) * 360) + 90;
-    minHand.style.transform = `rotate(${minDegrees}deg)`;
 
-    var hours = time.getHours();
-    var hourDegrees = ((hours / 12) * 360) + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
 
-  setInterval(setTime, 1000); // to initialize the function every seconds
 
   </script>
 </body>
