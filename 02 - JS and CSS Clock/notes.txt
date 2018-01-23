@@ -1,3 +1,14 @@
+RESUME
+
+const now = new Date();
+const seconds = now.getSeconds();
+const secondDegrees = (seconds/60)*360
+how to set a function every interval ? => setInterval(function, milliseconds)
+
+how to css style an object ? => object.style.transform = `xxx`
+
+-------------------------------
+
 takes current time
 
 > html
