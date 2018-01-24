@@ -1,0 +1,66 @@
+
+# What is important/new in the html ?
+
+<input type="range" => range
+<input type="color" => color-picker
+.hl => class highlighting
+
+# How do we declare css variables and their default values ?
+
+:root {
+  --variable: defaultvalue;
+}
+
+example :
+
+:root {
+  --base: yellow;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+/* La pseudo-classe :root permet de cibler la racine de l'arbre représentant le document. Pour un document HTML, :root ciblera donc l'élément <html> et aura le même comportement que le sélecteur html mais sa spécificité sera plus forte. */
+
+'--' => syntax to define variable, and make it compatible with older browsers
+
+# How do we reuse these variables that we have set before ?
+=> with parentheses and -- as below :
+
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+
+span.hl {
+  color: var(--base);
+}
+
+
+/* attention que ; a l'int des balises. si en dehors, ca stoppe le js*/
+
+> script
+
+# select nodelist of controls
+
+nodelist vs array
+array has many methods to use on
+nodelist has prototype with few methods to use on
+sometimes we have to convert nodelist to array so we can use methods
+not necessary here
+
+
+# addEventListener('change', function) on them
+# function console.log values
+# trigger a change asap => 'mousemove'
+# what is the suffix of the value ? => "px"
+
+# how do we add the suffix to our value ???
+=> we insert data-attributes in the html. We can call them anything : data-thing, data-florestan, data-name, ...
+=> we get all the data-attributes with data-set
+If it does not have data-attributes, it will display "undefined", we do not want that so we do :
+const suffix = this.dataset.sizing || "";
+
+# How do we select a variable ?
+=> select entire document, and set a property : spacing, blur or base that we find in > html > name="xxxx"
+=> documentElement.style.setProperty(`--$(this.name)`, this.value + suffix);
