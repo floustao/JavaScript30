@@ -22,6 +22,22 @@
 
   <style>
 
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -45,6 +61,17 @@
   </style>
 
   <script>
+
+    const inputs = document.querySelectorAll(`.controls input`); // select controls
+
+    function displayValue() {
+      const suffix = this.dataset.sizing || ''; // select data-attribute that we want
+      console.log(this.value + suffix); // print input value + data-attribute attached
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix );
+    }
+
+    inputs.forEach(input => input.addEventListener('mousemove', displayValue));
+    inputs.forEach(input => input.addEventListener('change', displayValue)); // change automatically value for color ! Otherwise, you need to select a color and then mouseover the color picker again.
 
   </script>
 
