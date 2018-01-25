@@ -1,0 +1,36 @@
+RESUME
+
+# How to convert nodeList into an array ??
+const array = Array.from(nodeList)
+
+=> NOW we can map & filter on it !
+
+# How to detect if string includes a letter ? => .includes()
+const boulevards = contents.filter(boulevard => boulevard.includes('de'));
+
+# Array.prototype.filter()
+array.filter(x => (condition to filter))
+
+# Array.prototype.map()
+array.map(x => (how to transform each x))
+
+# Array.prototype.sort()
+const sortedBirthdate = inventors.sort((a, b) => a.year > b.year ? -1 : 1 );
+We compare each group of (a, b) to sorth them
+
+# Array.prototype.reduce()
+const totalYears = inventors.reduce((total, inventor) => total + (inventor.passed - inventor.year), 0);
+
+0 at the end means => total is set to 0
+
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    const transportation = data.reduce(function(obj, number) {
+      if (!obj[number]) {
+        obj[number] = 0;
+      }
+      obj[number]++;
+      return obj;
+    }, {});
+
+    obj[number] is set to {}
