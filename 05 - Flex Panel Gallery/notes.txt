@@ -1,0 +1,28 @@
+RESUME
+
+# Read to know how to nest flexboxes
+
+# Use bezier to add some cool transition effects :
+transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+
+# .panel > *
+=> to select all elements in div.panel
+
+# .panel > *:first-child
+  .panel > *:last-child
+
+  => to select first and last <p>
+
+# transform: translateY(100px)
+=> to translate by 100px
+
+# We want the second effect once the first one is done
+=> transitionend !
+
+# toggleACtive won't toggle because we have multiple transitionend at the same time ! So we need to be specific by adding which transitionend interests us.
+
+
+------------------------------------------------------
