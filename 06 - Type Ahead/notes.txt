@@ -1,0 +1,95 @@
+RESUME
+
+Found a json file on github containing a huge array of cities
+
+We will inspect the array and filter the data.
+
+Create an empty array to store our cities.
+
+browsers have an intern API called fetch();
+
+# How does fetch() work ?
+
+1) fetch itself returns a promise :
+const prom = fetch(url);
+console.log(prom)
+
+promise is sthg that will eventually come back
+
+2) .then
+fetch(endpoint).then(resp => resp.json());
+
+3) .then
+fetch(endpoint)
+  .then(resp => resp.json()) // transform the data into json
+  .then(data => do sthg with this data);
+
+# how does REGEX work ?
+const regex = new RegExp(wordToMatch, 'gi');
+return place.city.match(regex)
+
+# REGEX 'gi' ?
+=> g for globally, meaning it will check multiple values
+=> i for insensitive case (bos, BOS, BoS, ...)
+
+# How to get text content of an input ?
+this.value
+
+# replace() method :
+
+const str = "Visit Microsoft!";
+const res = str.replace("Microsoft", "Apple");
+
+
+
+------------------------------------------------------
+
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+// 1) initialize an empty array that we will fill
+const cities = [];
+
+// 2) JSON => array
+fetch(endpoint)
+  .then(blob => blob.json()) //parsing
+  .then(data => cities.push(...data)); // push(...<data>) to spread the data inside the [] and not just prepend it like .push() does
+
+// 3) matching entre mot et array cities
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    // here we need to figure out if the city or state matches what was searched
+    const regex = new RegExp(wordToMatch, 'gi'); // g => global, search for the entire sentence & i => case insensitive
+    return place.city.match(regex) || place.state.match(regex)
+  });
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+// 4) inserer ce matching dans barre de recherche web
+function displayMatches() {
+  const matchArray = findMatches(this.value, cities);
+  const html = matchArray.map(place => {
+    // ---Bonus to highlight matchWords
+    const regex = new RegExp(this.value, 'gi');
+    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
+    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
+    // --------------------
+
+    //---injection des suggestions en dessous de la searchbar
+    return `
+      <li>
+        <span class='name'>${cityName}, ${stateName}</span>
+        <span class='population'>${numberWithCommas(place.population)}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML  = html;
+} // ------------
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
