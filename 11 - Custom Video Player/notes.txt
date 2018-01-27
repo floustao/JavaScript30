@@ -48,3 +48,17 @@ video => timeupdate, handleProgress
 
 progressBar => click, scrub
 -------------------------
+
+# How to refacto the following using ternary :
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+  } else {
+  video.pause();
+  }
+}
+
+function togglePlay() {
+  const method = video.paused ? 'play' : 'pause';
+  video[method]();
+}
