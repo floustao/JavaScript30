@@ -1,0 +1,50 @@
+RESUME
+
+1/ Get our elements
+
+----------------------
+2/ Build our functions
+
+togglePlay() => to call play/pause
+  property paused
+  video.play()
+  video.pause()
+
+updateButton()
+
+skip()
+  You can find data-skip on button element
+  access with dataset, remember ?
+  video.currentTime
+  '25' => 25 with parseFloat('25')
+
+handleRangeUpdate()
+
+handleProgress()
+  work with %
+  it should get yellow following the film
+  & change the currentTime of the film
+
+  const percent = (video.currentTime/video.duration) * 100
+
+  progressBar.style.flexBasis = `${percent}%`
+
+scrub()
+  to change currentTime of video
+
+
+--------------------------
+3/ hook up event listeners
+click on video
+click on play button
+play video => update button
+paused video => update button
+
+skipbuttons => skip on click
+
+ranges => mousemove & change on range
+
+video => timeupdate, handleProgress
+
+progressBar => click, scrub
+-------------------------
