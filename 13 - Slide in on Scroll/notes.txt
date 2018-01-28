@@ -1,0 +1,18 @@
+RESUME
+
+img are by default :
+opacity 0
+translateX
+
+addEventListener('scroll', )
+
+You are overwhelmed with event while using scroll => to diminish the number of event => debounce()
+
+properties window :
+  window.scrollY => gives pixels scrolled down
+  window.scroll(0, 0);  // reset the scroll position to the top left of the document.
+  window.innerHeight => height of visible window (different than outerHeight which includes the tab, url part, ...)
+
+property img :
+  img.offsetTop => gives distance between top of image and top of its parent (here the parent is the window)
+
