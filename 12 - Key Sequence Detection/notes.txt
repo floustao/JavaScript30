@@ -1,0 +1,15 @@
+RESUME
+
+.key => get what key you pushed
+
+array.push()
+
+array.splice(-6, -7) => '-' means you begin from the end
+
+.includes(string)
+
+.join('')
+
+cornify_add() => magic function
+
+
