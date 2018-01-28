@@ -58,6 +58,31 @@
       };
     }
 
+    // starts script here. Debounce function has been given
+
+    //get elements
+    const sliderImages = document.querySelectorAll(`.slide-in`);
+
+    //create function
+    function handleSlide() {
+      sliderImages.forEach(sliderImage => {
+        const slideInAt = (window.scrollY + window.innerHeight) - (sliderImage.height / 2);
+        const bottomOfImage = sliderImage.offsetTop + sliderImage.height;
+
+        const isHalfShown = slideInAt > sliderImage.offsetTop; // true or false
+        const isHidden = window.scrollY > bottomOfImage; // true or false
+        if (isHalfShown && !isHidden) {
+          sliderImage.classList.add(`active`);
+        } else {
+          sliderImage.classList.remove(`active`);
+        }
+      });
+    }
+
+    // hook uo addEventListeners
+    window.addEventListener('scroll', debounce(handleSlide));
+
+
   </script>
 
   <style>
