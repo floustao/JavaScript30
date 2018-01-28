@@ -1,0 +1,15 @@
+RESUME
+
+Bahavior is different between string/numbers vs array
+
+- If you update a string or a number, it will NOT reference back.
+- If you update an array, it will always referece back !
+
+# So how do you fix this ?
+=> By making a copy of it
+
+const array2 = [...array];
+
+or
+
+const array2 = Array.from(array)
