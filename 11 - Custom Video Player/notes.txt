@@ -28,6 +28,7 @@ handleProgress()
   const percent = (video.currentTime/video.duration) * 100
 
   progressBar.style.flexBasis = `${percent}%`
+  progressBar.style.flexBasis = '90%';
 
 scrub()
   to change currentTime of video
