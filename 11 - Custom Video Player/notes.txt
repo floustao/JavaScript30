@@ -1,0 +1,43 @@
+RESUME
+
+Functions are quite OK. The main hard part is the last function, to allow user handle video progress with mousedown && mousemove.
+
+# Roadmap :
+1/ Get our elements
+3/ Build our functions
+2/ hook up event listeners
+
+# What is new ?
+
+video properties :
+  video.paused
+  video.currentTime
+  video.duration
+  video.volume // because we have a name='volume'
+  video.playbackRate // because we have a name='playbackRate'
+video methods :
+  video.play()
+  video.pause()
+
+You can find data-skip on button element => access with dataset, remember ?
+'25' => 25 with parseFloat('25')
+
+progressBar property CSS :
+  progressBar.style.flexBasis = '90%';
+
+addEventListener triggers :
+  updatetime
+
+# How to refacto the following using ternary :
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+  } else {
+  video.pause();
+  }
+}
+
+function togglePlay() {
+  const method = video.paused ? 'play' : 'pause';
+  video[method]();
+}
