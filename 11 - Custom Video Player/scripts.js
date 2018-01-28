@@ -34,8 +34,10 @@ function handleBarProgress() {
 }
 
 function handleVideoProgress(e) {
-  console.log(e.offsetX);
-  video.currentTime = (e.offsetX * video.duration) / 640;
+  // console.log(e.offsetX);
+  // video.currentTime = (e.offsetX * video.duration) / 640;
+  const coefficient = (e.offsetX / progress.offsetWidth);
+  video.currentTime = coefficient * video.duration;
 }
 
 // Hook up addEventListeners
@@ -52,4 +54,15 @@ ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 video.addEventListener('timeupdate', handleBarProgress);
-progress.addEventListener('click', handleVideoProgress)
+
+progress.addEventListener('click', handleVideoProgress);
+
+// How to avoid progress update every time mousemoves ? Make sure it updates when mousemove && mousedown ??
+// Start with line 2. then line 1, then line 3 and 4.
+let mousedown = false;
+progress.addEventListener('mousemove', (e) => mousedown && handleVideoProgress(e)); // function is launched only IF mousedown is true
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
+
+
+
