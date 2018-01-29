@@ -13,25 +13,37 @@ property on form :
 property on input :
   input.value
 
-
 method on element this :
   this.reset();
-
-> console
-  localStorage.setItem
-              .removeItem
-              .getItem
-array.toString() => '[object object]'
-
-JSON.stringify()
 
 When you add an item, You put it in your localStorage
 You update your LocalSTorage every single item
 In page load, we check if there is sthg in localStorage, and chose empty array if empty storage
 
-You can write ternary directly in html :
+You can write ternary operator directly in html :
 <li>
   <input type="checkbox" id="item${index}" ${plate.done ? 'checked' : ''}>
   <label for="item${index}">${plate.text}</label>
 </li>
 
+# how to custom the check checkbox ?
+> CSS
+.plates input:checked + label:before {
+  content: 'img'
+}
+and play with display: none
+
+# How to not lose our data after a refresh ?
+localStorage // It is a key/value store
+
+properties :
+  setItem(),
+  getItem(),
+  removeItem(), ...
+
+syntax:
+storage.setItem(key, value); => value has to be a STRING
+
+# map => array
+# How to stringify an array ?
+JSON.stringify(array)
