@@ -1,0 +1,62 @@
+RESUME
+
+'submit' is more efficient than 'click' on button, because it also takes in consideration the 'enter' key.
+
+in > console
+we can tick 'preserve log' to see what happens.
+
+.preventDefault() => prevent default bahavior
+
+property on form :
+  form.reset()
+
+property on input :
+  input.value
+
+method on element this :
+  this.reset();
+
+When you add an item, You put it in your localStorage
+You update your LocalSTorage every single item
+In page load, we check if there is sthg in localStorage, and chose empty array if empty storage
+
+You can write ternary operator directly in html :
+<li>
+  <input type="checkbox" id="item${index}" ${plate.done ? 'checked' : ''}>
+  <label for="item${index}">${plate.text}</label>
+</li>
+
+# how to custom the check checkbox ?
+> CSS
+.plates input:checked + label:before {
+  content: 'img'
+}
+and play with display: none
+
+# How to not lose our data after a refresh ?
+localStorage // It is a key/value store
+> console > Application > local storage
+
+properties :
+  setItem(),
+  getItem(),
+  removeItem(), ...
+
+syntax:
+storage.setItem(key, value); => value has to be a STRING
+
+# map => array
+# How to stringify an array ?
+JSON.stringify(array)
+
+# How to string => array
+JSON.parse(string)
+
+# How to load localStorage at the page refresh ?
+const aValue = JSON.parse( storage.getItem(keyName) );
+
+# When inputs, do not addEventListener on them, they are dumb. Add listeners on parents instead ! Because they will already exist before input submit.
+
+property of target :
+  e.target.matches()
+
