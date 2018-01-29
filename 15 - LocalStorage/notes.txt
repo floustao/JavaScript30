@@ -47,3 +47,14 @@ storage.setItem(key, value); => value has to be a STRING
 # map => array
 # How to stringify an array ?
 JSON.stringify(array)
+
+# How to string => array
+JSON.parse(string)
+
+# How to load localStorage at the page refresh ?
+const aValue = JSON.parse( storage.getItem(keyName) );
+
+# When inputs, do not addEventListener on them, they are dumb. Add listeners on parents instead ! Because they will already exist before input submit.
+
+property of target :
+  e.target.matches()
