@@ -1,0 +1,39 @@
+What's new ?
+----------------
+
+# ES6 refacto style :
+// const width = hero.offsetWidth;
+// const height = hero.offsetHeight;
+const { offsetWidth: width, offsetHeight: height } = hero;
+
+
+# properties of HTMLelement :
+  .offsetHeight
+  .offsetLeft
+  .offsetTop
+  .offsetWidth
+
+=> gives number of pixel
+
+# Dealing with (x, y) with JS :
+When you do it with Parent and children, (x,y) = (0, 0) in top left corner of children.
+To fix it, use offSetLeft & offsetTop
+
+# Play with shadow - by how many pixel should it stretch ?
+low right corner of window => stretch = 100
+top left corner of window => stretch = -100
+
+if stretch = 100, the range should be [50, -50] => xStretch, yStretch
+
+# Steps :
+  get width and height of parent
+  get x,y from mouse
+  fixing children interference
+  get stretch from center of parent
+
+# (CSS) text-shadow vs textShadow (JS) :
+> CSS
+    text-shadow: 10px 10px 0 red;
+    0 => no blur
+> JS
+    text.style.textShadow = `10px 10px 0 red`;
