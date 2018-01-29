@@ -1,0 +1,31 @@
+RESUME
+
+'submit' is more efficient than 'click' on button, because it also takes in consideration the 'enter' key.
+
+in > console
+we can tick 'preserve log' to see what happens.
+
+.preventDefault() => prevent default bahavior
+
+property on form :
+  form.reset()
+
+property on input :
+  input.value
+
+
+method on element this :
+  this.reset();
+
+> console
+  localStorage.setItem
+              .removeItem
+              .getItem
+array.toString() => '[object object]'
+
+JSON.stringify()
+
+When you add an item, You put it in your localStorage
+You update your LocalSTorage every single item
+In page load, we check if there is sthg in localStorage, and chose empty array if empty storage
+
