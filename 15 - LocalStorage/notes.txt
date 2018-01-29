@@ -29,3 +29,9 @@ When you add an item, You put it in your localStorage
 You update your LocalSTorage every single item
 In page load, we check if there is sthg in localStorage, and chose empty array if empty storage
 
+You can write ternary directly in html :
+<li>
+  <input type="checkbox" id="item${index}" ${plate.done ? 'checked' : ''}>
+  <label for="item${index}">${plate.text}</label>
+</li>
+

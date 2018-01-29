@@ -35,7 +35,7 @@
     const input = this.querySelector(`[name='item']`).value;
     const item = {
       text: input,
-      done: false
+      done: true
     };
 
     items.push(item);
@@ -47,7 +47,10 @@
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, index) => {
       return `
-        <li>${plate.text}</li>
+        <li>
+          <input type="checkbox" id="item${index}" ${plate.done ? 'checked' : ''}>
+          <label for="item${index}">${plate.text}</label>
+        </li>
       `
     }).join('');
   }
