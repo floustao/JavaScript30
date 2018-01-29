@@ -35,6 +35,7 @@ and play with display: none
 
 # How to not lose our data after a refresh ?
 localStorage // It is a key/value store
+> console > Application > local storage
 
 properties :
   setItem(),
@@ -58,3 +59,4 @@ const aValue = JSON.parse( storage.getItem(keyName) );
 
 property of target :
   e.target.matches()
+
