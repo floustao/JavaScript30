@@ -1,0 +1,7 @@
+What's new ?
+-------------
+
+parseFloat converts every string elements of time.split(':') into numbers
+
+Math.floor(5.6) => 5 vs Math.round(5.6) => 6
+
