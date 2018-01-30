@@ -1,0 +1,18 @@
+What's new ?
+------------
+
+In function paintToCanvas, we make sur ethe canvas has the same height and width than the video.
+
+# ctx.drawImage => La méthode CanvasRenderingContext2D.drawImage() de l'API 2D des Canvas instaure différentes manières de dessiner des images dans les balises canvas.
+
+ # How to automatically draw image on canvas ?
+ => canplay event
+ => The canplay event is fired as soon as video.play() is launched
+
+# How do we play a photo sound ?
+audio.currentTime = 0;
+audio.play();
+
+# How do we take photo of the canvas ?
+
+
