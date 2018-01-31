@@ -1,0 +1,13 @@
+What's new ?
+------------
+
+npm install
+npm start
+allow access microphone
+
+-----------------------
+
+.SpeechRecognition => global variable that lives in the browser on top of the window
+
+in chrome it lives in .webkitSpeechRecognition
+

@@ -12,6 +12,9 @@
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true; // without this, you need to stop speaking before seeing the results
+
 
 </script>
 
