@@ -4,11 +4,12 @@ const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
+// get the video
 function getVideo() {
-  navigator.mediaDevices.getUserMedia({ video: true, audio: false }) // gives a promise
+  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     .then(localMediaStream => {
-      video.src = window.URL.createObjectURL(localMediaStream); // converts local media to url
-      video.play(); // if you inspect html, you can see that source src is a blob => means the raw data is piped in here
+      video.src = window.URL.createObjectURL(localMediaStream);
+      video.play();
     })
     .catch(err => console.error('You denied the webcam', err));
 }
@@ -20,14 +21,14 @@ function paintToCanvas() {
   canvas.width = width;
   canvas.height = height;
 
-  setInterval(() => {
+  return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height) // (0, 0) = top left corner / (width, height) => dimension of image
     // take the pixels out
     let pixels = ctx.getImageData(0, 0 , width, height); // get the million pixels of the image in an array as RGBA. Array is too big to use map
     // mess with pixels
     // pixels = redEffect(pixels);
-    // pixels = rgbSplit(pixels);
-    pixels = greenScreen(pixels);
+    pixels = rgbSplit(pixels);
+    // pixels = greenScreen(pixels);
     ctx.globalAlpha = 0.1; // ghost effect !!
     // put pixels back
     ctx.putImageData(pixels, 0, 0)
@@ -40,13 +41,13 @@ function takePhoto() {
   snap.play();
 
   // take the data out of the canvas
-  const data = canvas.toDataURL('images/jpeg'); // Creates a base64 data in console.
+  const data = canvas.toDataURL('pictures/jpeg'); // Creates a base64 data in console.
   const link = document.createElement('a');
   link.href = data;
-  link.setAttribute('download', 'Webcam screenshot'); //download event
+  link.setAttribute('download', 'Webcam screenshot');
   // link.textContent = 'Download photo';
   link.innerHTML = `<img src="${data}" alt="webcam snap">` // create an html instead of a link like previously
-  strip.insertBefore(link, strip.firstChild); // equivalent of prepend
+  strip.insertBefore(link, strip.firstChild);
 }
 
 function redEffect(pixels) {
@@ -54,7 +55,6 @@ function redEffect(pixels) {
     pixels.data[i] = pixels.data[i] * 2;     // red
     pixels.data[i + 1] = pixels.data[i + 1] - 50;// green
     pixels.data[i + 2] = pixels.data[i + 2] / 2; // blue
-    // pixels[i + 4] we do not need alpha
   }
   return pixels;
 }
@@ -64,7 +64,6 @@ function rgbSplit(pixels) {
     pixels.data[i - 150] = pixels.data[i];     // red
     pixels.data[i + 100] = pixels.data[i + 1];// green
     pixels.data[i - 150] = pixels.data[i + 2]; // blue
-    // pixels[i + 4] we do not need alpha
   }
   return pixels;
 }
@@ -77,10 +76,10 @@ function greenScreen(pixels) {
   });
 
   for (i = 0; i < pixels.data.length; i += 4) {
-    red = pixels.data[i + 0];   // red
-    green = pixels.data[i + 1]; // green
-    blue = pixels.data[i + 2];  // blue
-    alpha = pixels.data[i + 3]; // alpha
+    red = pixels.data[i + 0];   // set red green blue and alpha (transparent)
+    green = pixels.data[i + 1];
+    blue = pixels.data[i + 2];
+    alpha = pixels.data[i + 3];
 
     if (red >= levels.rmin
       && green >= levels.gmin

@@ -3,17 +3,45 @@ What's new ?
 
 In function paintToCanvas, we make sur ethe canvas has the same height and width than the video.
 
-# ctx.drawImage => La méthode CanvasRenderingContext2D.drawImage() de l'API 2D des Canvas instaure différentes manières de dessiner des images dans les balises canvas.
+# How do we get the webcam video ?
+  navigator.mediaDevices.getUserMedia({video: true, audio: false}); => gives a promise
+  .then(media => {
+    video.src = window.URL.createObjectURL(media); => converts local media to url, gives a shot
+    video.play(); => activate live video. Inspect html => source src is a blob => means the raw data is piped in here
+  })
 
- # How to automatically draw image on canvas ?
- => canplay event
- => The canplay event is fired as soon as video.play() is launched
+# How do we take a frame of the video and display it on the window canvas ?
+  ctx.drawImage => La méthode CanvasRenderingContext2D.drawImage() instaure différentes manières de dessiner des images dans les balises canvas.
 
-# How do we play a photo sound ?
-audio.currentTime = 0;
-audio.play();
+# How to automatically display image on canvas ?
+=> 'canplay' event
+=> The canplay event is fired as soon as video.play() is launched
+
+# How to get the data from the image ? How to take pixels out ?
+.getImageData() => get the million pixels of the image in an array as RGBA. Array is too big to use map
+
+# How to play with pixels ?
+  .getImageData =>
+  change the value of red/green/blue in a function
+  put the pixels back => .putImageData()
+
+# How do we play an audio inserted in HTML ?
+> html
+  <audio src="http://blablabla"></audio>
+> js
+  audio.currentTime = 0;
+  audio.play();
 
 # How do we take photo of the canvas ?
+  .toDataURL() => returns a data URI containing a representation of the image in the format specified by the type parameter (defaults to PNG). The returned image is in a resolution of 96 dpi.
+
+# How do we download the photo ?
+  .createElement('a') => create <a> link
+  .href = (url) => sets href
+  .setAttribute('download', 'name') => download event
+
+# How do we prepend an element ?
+  .insertBefore(element, destination)
 
 # How do we debug ?
 debugger => stops function => check console
