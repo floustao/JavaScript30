@@ -1,7 +1,12 @@
 What's new ?
 ------------
 
-In function paintToCanvas, we make sur ethe canvas has the same height and width than the video.
+Need a secure server to do this exercise :serve in sublimeText or via package.json type :
+npm install
+npm start
+allow camera
+
+In function paintToCanvas, we make sure the canvas has the same height and width than the video.
 
 # How do we get the webcam video ?
   navigator.mediaDevices.getUserMedia({video: true, audio: false}); => gives a promise
@@ -14,11 +19,11 @@ In function paintToCanvas, we make sur ethe canvas has the same height and width
   ctx.drawImage => La méthode CanvasRenderingContext2D.drawImage() instaure différentes manières de dessiner des images dans les balises canvas.
 
 # How to automatically display image on canvas ?
-=> 'canplay' event
-=> The canplay event is fired as soon as video.play() is launched
+  => 'canplay' event
+  => The canplay event is fired as soon as video.play() is launched
 
 # How to get the data from the image ? How to take pixels out ?
-.getImageData() => get the million pixels of the image in an array as RGBA. Array is too big to use map
+  .getImageData() => get the million pixels of the image in an array as RGBA. Array is too big to use map
 
 # How to play with pixels ?
   .getImageData =>
@@ -44,7 +49,16 @@ In function paintToCanvas, we make sur ethe canvas has the same height and width
   .insertBefore(element, destination)
 
 # How do we debug ?
-debugger => stops function => check console
+  debugger => stops function => check console
+
+# How to create a ghost effect ?
+  .globalAlpha(indice of transparency) => alpha is the transparent pixel
+
+# How to add listeners to ranges ?
+
+  document.querySelectorAll('.rgb input').forEach((input) => {
+    levels[input.name] = input.value;
+  });
 
 
 
