@@ -15,4 +15,8 @@ audio.play();
 
 # How do we take photo of the canvas ?
 
+# How do we debug ?
+debugger => stops function => check console
+
+
 
