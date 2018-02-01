@@ -11,3 +11,4 @@ allow access microphone
 
 in chrome it lives in .webkitSpeechRecognition
 
+
