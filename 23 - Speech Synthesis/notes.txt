@@ -1,0 +1,47 @@
+RESUME
+
+> HTML
+rate
+pitch
+text
+
+the 3 have a name attribute => important to not change them
+
+> js
+
+What's new ?
+------------
+
+SpeechSynthesisUtterance()
+=> gathers all info about speech (languages, msg, rate, pitch, ..)
+
+speechSynthesis
+speechSynthesis.speak(utterance)
+=> global variable to which you pass an utterance to speak :
+=> It does not work yet because voice is null
+
+
+
+# How to populate the voices ? List of voices is empty...
+
+  .getVoices()
+  'voiceschanged' event starts everytime you change the voice AND when the page initially loads
+
+# How to make the voice speak ?
+The voice will work once the voices are populated.
+It is still voice: null but you can :
+speechSynthesis.speak('Flo is a future king of development');
+
+# How to filter voices ?
+  Just filter before .map. You can filter by english voices for instance :
+  .filter(voice => voice.lang.includes('en'))
+
+# How to stop the voice from speaking ?
+  .cancel() method on speechSynthesis
+  Since we have one function that toogles speak/stop, we need to pass it an argument => true/false
+
+# How to change argument on toggle ? To stop voice
+  pass another function in eventListener:
+  () => toggle(false)
+
+  or use .bind(null, false)
