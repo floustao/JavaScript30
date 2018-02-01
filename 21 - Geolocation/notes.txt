@@ -1,0 +1,13 @@
+What's new ?
+------------
+
+navigator.geolocation.watchPosition()
+
+data.coords.heading
+
+success callback vs error callback ?
+=> succes is what happens if they allow camera/microphone/geolocation/...
+=> error is when they say no
+(err) => console.error(err);
+alert('Hey');
+
