@@ -1,0 +1,10 @@
+What's new ?
+------------
+
+ex: Used on stripe.com
+
+Create a span element in the body with highlight CSS
+
+# How to get width/height of a word ?
+ .getBoundingClientRect()
+
