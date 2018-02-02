@@ -1,0 +1,16 @@
+What's new ?
+------------
+
+element.offSetTop
+window.scrollY
+element.offsetHeight
+
+=> add & create CSS class fixed
+=> add it to document.body so it can be reused.
+
+=> The addition of the .fixed creates a weird jump
+Because now the sub-element has some space to spread.
+To fix this => add padding
+
+when you make an element fixed, it no longer takes space in the doc => it is called refloat
+=> add a padding of the element's height
