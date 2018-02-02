@@ -49,9 +49,6 @@ nav {
   z-index: 1;
 }
 
-body.fixed-nav nav {
-  position: fixed;
-}
 
 nav ul {
   margin: 0;
@@ -72,10 +69,11 @@ li.logo {
   max-width:0;
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 5s;
   font-weight: 600;
   font-size: 30px;
 }
+
 
 li.logo a {
   color:black;
@@ -88,4 +86,18 @@ nav a {
   color:white;
   transition:all 0.2s;
   text-transform: uppercase;
+}
+
+/* add*/
+
+body.fixed-nav nav {
+  position: fixed;
+}
+
+body.fixed-nav li.logo {
+  max-width: 500px;
+}
+
+body.fixed-nav .site-wrap {
+  transform: scale(1);
 }
