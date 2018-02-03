@@ -1,5 +1,7 @@
 What"s new ?
 ------------
 
-# The trick
-  a div with white background + arrow span
+# Nice effect
+  play with :
+  1) display none => block and AFTER
+  2) opacity 0 => 1 ( + transition: all 0.5s)
