@@ -1,0 +1,28 @@
+What's new ?
+------------
+
+# why does a click in the middle display the 3 divs ?
+  'Event capturing' goes top to bottom and THEN
+  'bubbling' fires the triggers bottom to top
+  So if you click on an element that is wrapped by a parent, it will bubble fires the element and then the parent too.
+
+# How to inverse the order ?
+  In eventListener by default capture is set to false
+  If you do :
+  .addEventListener('event', function(), {
+    capture: true
+  })
+
+  It will inverse the behavior and fire from bottom to top
+
+# How to avoid the triple display ?
+  By stopping the bubbling with:
+  .stopPropagation()
+
+# So if you capture: true & stopPropagation => click on int and you fire ext
+
+# How to unbid/allow one event only ? => once
+
+  .addEventListener('event', function(), {
+    once: true
+  })
