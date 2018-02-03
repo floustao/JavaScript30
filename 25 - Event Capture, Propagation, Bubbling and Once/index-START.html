@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <title>Understanding JavaScript's Capture</title>
 </head>
-<body class="bod">
+<body class="body">
 
-  <div class="one">
-    <div class="two">
-      <div class="three">
+  <div class="ext">
+    <div class="middle">
+      <div class="int">
       </div>
     </div>
   </div>
@@ -24,21 +24,34 @@
     padding:100px;
   }
 
-  .one {
+  .ext {
     background: thistle;
   }
 
-  .two {
+  .middle {
     background:mistyrose;
   }
 
-  .three {
+  .int {
     background:coral;
   }
 </style>
 
 <button></button>
+
 <script>
+
+  const divs = document.querySelectorAll(`div`);
+
+  function logText(e) {
+    console.log(this.classList.value);
+    e.stopPropagation();
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false,
+    once: true
+  }));
 
 </script>
 </body>
