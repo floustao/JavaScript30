@@ -1,0 +1,18 @@
+What's new ?
+------------
+
+# What is the trick ?
+
+  => once you click => select div and locate position of mouse
+  => once you drag => translate the div by how many px you move the mouse
+  => You will need mousedown, mouseleave, mouseup and mousemove
+
+startX will be the position of the anchor
+scrollLeft will be the position of the mouseup
+
+# How to get position of mouse on page ?
+  .pageX
+  => fix it by substracting offsetLeft
+
+# How to display what variable we are console logging ?
+  console.log({var})
