@@ -1,0 +1,20 @@
+What"s new ?
+------------
+
+# Nice effect
+  play with :
+  1) display none => block and AFTER
+  2) opacity 0 => 1 ( + transition: all 0.5s)
+
+# How to remove 2 classes at once ?
+  classList.remove('class1', 'class2');
+
+# How to refacto an if statement ?
+  if (condition) {do that} =>
+    condition && do that
+
+  ex:
+  setTimeout(() => this.classList.contains(`trigger-enter`) && this.classList.add(`trigger-enter-active`), 150);
+
+# Need to use navCoords as well in the calculus, to prevent future bugs in case HTMl is added in nav and height changes
+
