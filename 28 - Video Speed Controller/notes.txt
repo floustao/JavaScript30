@@ -1,0 +1,20 @@
+What's new ?
+------------
+
+# How to locate mouse on speedbar ?
+  e.pageY
+
+# It does not start at 0 ...?
+  fix it by substracting this.offsetTop
+
+# How to change [0,100] to [0.4,4] ?
+  Multiplicate by difference (max - min) + min
+
+# How to change la jauge ?
+  bar.style.height
+
+# How to round it by 2 digits after coma ?
+  .toFixed(2)
+
+# How to change video rate ?
+  video.playbackRate
