@@ -1,0 +1,16 @@
+# How to know if shiftkey is down ?
+
+=> event.shiftkey
+
+function CheckifShiftkeyDown(e) {
+  if (e.shiftKey) {
+    console.log('shiftkey is down');
+  }
+}
+
+# How to check all checkboxes while holding shiftkey ?
+Set variable inBetween to false
+Loop over checkboxes to check if it is the first / last checkbox checked
+If true, set inBetween true
+That way all the checkboxes between the first and last one have inBetween set to true !
+

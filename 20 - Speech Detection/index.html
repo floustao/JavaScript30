@@ -30,8 +30,20 @@
       p = document.createElement('p');
       words.appendChild(p);
     }
-    if (transcript.includes('get the sports news')) {
-      window.open("https://www.eurosport.fr/","_blank")
+    if (transcript.includes('weather')) {
+      window.open("https://weather.com/","_blank")
+    }
+    if (transcript.includes('news')) {
+      window.open("http://www.bbc.com/news","_blank")
+    }
+    if (transcript.includes('direction')) {
+      window.open("https://www.google.com/maps","_blank")
+    }
+    if (transcript.includes('Twitter')) {
+      window.open("https://twitter.com","_blank")
+    }
+    if (transcript.includes('Facebook')) {
+      window.open("https://www.facebook.com/","_blank")
     }
   }); // once the result is finish (stop talking), it does not start again => need another event listener => EventListener('end', ...)
 
@@ -48,7 +60,10 @@
     }
 
     body {
-      background:#ffc600;
+      /*background:#ffc600;*/
+      background: url(../pics/JS20.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
       font-family: 'helvetica neue';
       font-weight: 200;
       font-size: 20px;

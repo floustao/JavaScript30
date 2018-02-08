@@ -5,7 +5,7 @@
   <title>Follow Along Nav</title>
 </head>
 <body>
-  <h2>Cool</h2>
+  <h2>JS hover effect</h2>
   <nav class="top">
     <div class="dropdownBackground">
       <span class="arrow"></span>
@@ -16,14 +16,26 @@
         <a href="#">About Me</a>
         <div class="dropdown dropdown1">
           <div class="bio">
-            <img src="https://logo.clearbit.com/wesbos.com">
-            <p>Wes Bos sure does love web development. He teaches things like JavaScript, CSS and BBQ. Wait. BBQ isn't part of web development. It should be though!</p>
+            <img src="../pics/id.jpeg" style="height: 140px; width: 100px">
+            <p>Hi ! I am a French engineer who recently moved to San Diego, CA. I worked in a Canadian startup for 4 years as a PM. My goal now is to transition into a web developer position.</p>
           </div>
         </div>
       </li>
       <li>
-        <a href="#">Courses</a>
+        <a href="#">Current Projects</a>
         <ul class="dropdown courses">
+          <li>
+            <span class="code">S</span>
+            <a href="http://www.seeedr.com/">Seeedr.com</a>
+          </li>
+          <li>
+            <span class="code">JS30</span>
+            <a href="https://javascript30.com/">JavaScript 30</a>
+          </li>
+          <li>
+            <span class="code">LN</span>
+            <a href="https://learnnode.com/">Learn Node!</a>
+          </li>
           <li>
             <span class="code">RFB</span>
             <a href="https://ReactForBeginners.com">React For Beginners</a>
@@ -32,35 +44,36 @@
             <span class="code">ES6</span>
             <a href="https://ES6.io">ES6 For Everyone</a>
           </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Technical skills</a>
+        <ul class="dropdown courses">
           <li>
-            <span class="code">STPU</span>
-            <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
+            <span class="code">JavaScript</span>
+            <a href="">1 year</a>
           </li>
           <li>
-            <span class="code">WTF</span>
-            <a href="http://flexbox.io">What The Flexbox?!</a>
+            <span class="code">Ruby on Rails</span>
+            <a href="">1 year</a>
           </li>
           <li>
-            <span class="code">LRX</span>
-            <a href="http://LearnRedux.com">Learn Redux</a>
+            <span class="code">HTML/CSS</span>
+            <a href="">1 year</a>
           </li>
           <li>
-            <span class="code">CLPU</span>
-            <a href="http://CommandLinePowerUser.com">Command Line Power User</a>
-          </li>
-          <li>
-            <span class="code">MMD</span>
-            <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
+            <span class="code">React.js</span>
+            <a href="">starting</a>
           </li>
         </ul>
       </li>
       <li>
         <a href="#">Other Links</a>
         <ul class="dropdown dropdown3">
-          <li><a class="button" href="http://twitter.com/wesbos">Twiter</a></li>
-          <li><a class="button" href="http://facebook.com/wesbos.developer">Facebook</a></li>
-          <li><a class="button" href="http://wesbos.com">Blog</a></li>
-          <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
+          <li><a class="button" href="http://twitter.com/floustao">Twitter</a></li>
+          <li><a class="button" href="https://github.com/floustao">GitHub</a></li>
+          <li><a class="button" href="https://floustao.github.io/resume/">Resume</a></li>
+          <li><a class="button" href="http://seeedr.com">Project</a></li>
         </ul>
       </li>
     </ul>
@@ -69,7 +82,10 @@
 <style>
   html {
     box-sizing: border-box;
-    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif
+    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+    background: url(../pics/JS26.jpeg);
+    background-position: center;
+    background-size: cover;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -77,11 +93,6 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background:
-      linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
-      linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
-      linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-      linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
   }
 
   h2 {
@@ -196,8 +207,8 @@
 
   /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
   .button[href*=twitter] { background: #019FE9; }
-  .button[href*=facebook] { background: #3B5998; }
-  .button[href*=courses] { background: #ffc600; }
+  .button[href*=github] { background: #3B5998; }
+  .button[href*=resume] { background: #ffc600; }
 
   /*ADD NEW CSS HERE*/
 
