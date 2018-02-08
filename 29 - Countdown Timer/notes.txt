@@ -1,0 +1,40 @@
+What's new ?
+------------
+
+# How to get current time(ms) ?
+(new Date).getTime() => equivalent to => Date.now()
+=> gives time in ms
+
+# How to display time left every second ?
+  setInterval(() => {}, 1000)
+
+# How to stop countdown once it reaches 0 ?
+  store setInterval in a variable &,
+  use if &,
+  clearInterval(variable)
+
+# When we do timer(10) it starts at 9..8..7...
+  1) Need to display the seconds asked => second function
+  2) Start countdown => first function
+
+# How to use timestamp ?
+  Date.now(); => 66346328468328468 (milliseconds)
+  new Date(66346328468328468) => converts to readable string
+  const x = new Date(66346328468328468);
+  x.getMonth()
+  x.getDay()
+  x.getDate()
+  x.getHours()
+  x.getMinutes()
+  x.getSeconds()
+
+# How to convert 24h to american 12h time ?
+  time > 12 ? hour - 12 : hour;
+
+# Faster way to select :
+when name in html => can call it directly, even nest it
+const inputTimer = document.customForm;
+const minutes = document.customForm.minutes;
+
+# How to clear the input ?
+this.reset();
