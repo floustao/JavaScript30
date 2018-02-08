@@ -10,10 +10,11 @@ body {
   margin: 0;
   padding: 0;
   display:flex;
-  background:#7A419B;
-  min-height:100vh;
-  background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+  background:#ffc600 url(../pics/JS11.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size:cover;
+  min-height:100vh;
   align-items: center;
   justify-content: center;
 }
