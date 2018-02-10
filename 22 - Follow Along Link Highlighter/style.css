@@ -9,7 +9,7 @@ body {
   margin: 0; /* Important! */
   font-family: sans-serif;
   background: url(../pics/JS22.jpg);
-  background-position: center;
+  background-size: cover;
 }
 
 .wrapper {
