@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: url(../pics/JS27.jpeg);
+  background: url(../pics/JS27.jpg);
   background-size: cover;
 }
 
@@ -56,15 +56,15 @@ body {
   box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
 }
 
-.item:nth-child(9n+1) { background: url(../pics/JS27-glasses.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+2) { background: url(../pics/JS27-hublot.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+3) { background: url(../pics/JS27-SD.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+4) { background: url(../pics/JS27-snow.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+5) { background: url(../pics/JS27-type.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+6) { background: url(../pics/JS27-window.jpeg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+1) { background: url(../pics/JS27-glasses.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+2) { background: url(../pics/JS27-hublot.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+3) { background: url(../pics/JS27-SD.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+4) { background: url(../pics/JS27-snow.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+5) { background: url(../pics/JS27-type.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+6) { background: url(../pics/JS27-window.jpg) center; background-size: cover; background-position: center;}
 .item:nth-child(9n+7) { background: url(../pics/JS27-face.jpg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+8) { background: url(../pics/JS27-bike.jpeg) center; background-size: cover; background-position: center;}
-.item:nth-child(9n+9) { background: url(../pics/JS27-surf.jpeg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+8) { background: url(../pics/JS27-bike.jpg) center; background-size: cover; background-position: center;}
+.item:nth-child(9n+9) { background: url(../pics/JS27-surf.jpg) center; background-size: cover; background-position: center;}
 
 .item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
 .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
