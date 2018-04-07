@@ -3,25 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Key Detection</title>
-  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
-<h3 style="text-align: center">I dare you to write 'flo'</h3>
-<script>
+  <h3 style="text-align: center">I dare you to write 'flo'</h3>
 
-  const array = [];
-  const secretcode = 'flo';
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 
-  function whatKey(e) {
-    array.push(e.key);
-    array.splice(-secretcode.length - 1, array.length - secretcode.length);
-    if (array.join('').includes(secretcode)) {
-      cornify_add();
-    }
-  }
-
-  window.addEventListener('keyup', whatKey);
-
-</script>
 </body>
 </html>

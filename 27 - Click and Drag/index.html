@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
@@ -34,41 +35,7 @@
     <div class="item item25">25</div>
   </div>
 
-<script>
-
-const slider = document.querySelector(`.items`);
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft; // to avoid bad position in case of margin on slider
-  scrollLeft = slider.scrollLeft; // will be used in mousemove
-});
-
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-  if (!isDown) {return}; // stop function from running
-  e.preventDefault(); // prevent from selecting text or images while mousemoving
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 3; // for each px it moves 3px
-  slider.scrollLeft = scrollLeft - walk; // to prevent if already scrolled before mousedown
-});
-
-
-
-</script>
+  <script type="text/javascript" src="script.js"></script>
 
   </body>
 </html>
